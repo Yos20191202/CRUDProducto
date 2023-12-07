@@ -31,8 +31,8 @@
   
             <!-- Botones de acciones -->
             <td>
-              <router-link :to="{ name: 'Editar', params: { id: producto.id } }">Editar</router-link>
-              <button @click="borrarProducto(producto.id)">Borrar</button>
+              <router-link :to="{ name: 'Editar', params: { id: producto.id } }" class="btn btn-info">Editar</router-link>
+              <button class="btn btn-danger" >Borrar</button>
             </td>
           </tr>
         </tbody>
@@ -63,18 +63,7 @@
           })
           .catch(error => console.error('Error al obtener productos:', error));
       },
-      borrarProducto(id) {
-        // Realiza la solicitud para borrar el producto con el ID proporcionado
-        // Usa axios o fetch para realizar la solicitud GET
-        // Ajusta la URL según tu estructura en el servidor
-        fetch(`http://localhost/tienda01/?borrar_producto=${id}`)
-            .then(respuesta => respuesta.json())
-            .then(datosRespuesta => {
-                console.log(datosRespuesta)
-                window.location.href = "listar"
-            })
-            .catch(error => console.log(error));
-      },
+      
       async obtenerDescripcionCategoria(idCategoria) {
         // Realiza una solicitud para obtener la descripción de la categoría
         // Usa axios o fetch para realizar la solicitud GET
