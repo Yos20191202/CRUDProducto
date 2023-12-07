@@ -32,7 +32,7 @@
             <!-- Botones de acciones -->
             <td>
               <router-link :to="{ name: 'Editar', params: { id: producto.id } }" class="btn btn-info">Editar</router-link>
-              <button class="btn btn-danger" >Borrar</button>
+              <button class="btn btn-danger" @click="eliminarProducto(producto.id)">Borrar</button>
             </td>
           </tr>
         </tbody>
@@ -41,44 +41,59 @@
   </template>
   
   <script>
+import router from '../router';
+
   export default {
     data() {
-      return {
-        productos: [], // Almacena la lista de productos
-      };
+        return {
+            productos: [], // Almacena la lista de productos
+        };
     },
     created() {
-      // Cargar la lista de productos al iniciar el componente
-      this.consultarProductos();
+        // Cargar la lista de productos al iniciar el componente
+        this.consultarProductos();
     },
     methods: {
-      consultarProductos() {
-        // Realiza la solicitud para obtener la lista de productos desde el servidor
-        // Usa axios o fetch para realizar la solicitud GET
-        // Ajusta la URL según tu estructura en el servidor
-        fetch('http://localhost/tienda01/')
-          .then(response => response.json())
-          .then(data => {
-            this.productos = data;
-          })
-          .catch(error => console.error('Error al obtener productos:', error));
+        consultarProductos() {
+            // Realiza la solicitud para obtener la lista de productos desde el servidor
+            // Usa axios o fetch para realizar la solicitud GET
+            // Ajusta la URL según tu estructura en el servidor
+            fetch('http://localhost/tienda01/')
+                .then(response => response.json())
+                .then(data => {
+                this.productos = data;
+            })
+                .catch(error => console.error('Error al obtener productos:', error));
+        },
+
+        eliminarProducto(id) {
+          // Realiza la solicitud para eliminar el producto con el ID especificado
+          fetch(`http://localhost/tienda01/?borrar=${id}`, { method: 'DELETE' })
+            .then(response => response.json())
+            .then(data => {
+              console.log(data); 
+              this.consultarProductos();
+            })
+            .catch(error => console.error('Error al eliminar producto:', error));
+        },
+
+        async obtenerDescripcionCategoria(idCategoria) {
+            // Realiza una solicitud para obtener la descripción de la categoría
+            // Usa axios o fetch para realizar la solicitud GET
+            // Ajusta la URL según tu estructura en el servidor
+            try {
+                const response = await fetch(`http://localhost/tienda01/?consultar_categoria=${idCategoria}`);
+                const data = await response.json();
+                return data.length > 0 ? data[0].descripcion : 'Categoría no encontrada';
+            }
+            catch (error) {
+                console.error('Error al obtener descripción de la categoría:', error);
+                return 'Error al obtener descripción';
+              }
+        },
       },
-      
-      async obtenerDescripcionCategoria(idCategoria) {
-        // Realiza una solicitud para obtener la descripción de la categoría
-        // Usa axios o fetch para realizar la solicitud GET
-        // Ajusta la URL según tu estructura en el servidor
-        try {
-          const response=await fetch(`http://localhost/tienda01/?consultar_categoria=${idCategoria}`);
-          const data=await response.json();
-          return data.length>0 ? data[0].descripcion :'Categoría no encontrada';
-        } catch(error) {
-          console.error('Error al obtener descripción de la categoría:', error);
-          return 'Error al obtener descripción';
-        }
-      },
-    },
-  };
+      components: { router },
+};
   </script>
   
   <style>
