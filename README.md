@@ -1,5 +1,12 @@
 # Vue 3 + TypeScript + Vite
 
+
+para trabajar con esto es necesario tener xampp, mysql, node, npm, vue, ts.
+Primero --> importamos el script sql de la base de datos en una bd llamada "tienda01"
+Segundo --> deberemos pegar la carpeta "tienda01" en la carpeta htdocs de xampp
+Tercero --> levantar el servidor y acceder al proyecto de php por medio de "http://localhost/tienda01/"
+
+
 This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
 
 ## Recommended IDE Setup
