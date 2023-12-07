@@ -1,5 +1,4 @@
-Claro, aquí está tu código modificado para incluir los selectores desplegables:
-```vue
+
 <!-- CrearView.vue -->
 <template>
   <div>
