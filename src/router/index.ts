@@ -4,9 +4,9 @@ import ListarView from '../views/ListarView.vue'
 import CrearView from '../views/CrearView.vue'
 import EditarView from '../views/EditarView.vue'
 //Categoria
-import CrearCatVue from '../views/CrearCat.vue'
-import EditarCatVue from '../views/EditarCat.vue'
-import ListCatVue from '../views/ListCat.vue'
+import CrearCatVue from '@/components/CrearCat.vue'
+import EditarCatVue from '@/components/EditarCat.vue'
+import ListCatVue from '@/components/ListCat.vue'
 
 const routes: Array<RouteRecordRaw> = [
   { path: '/', name: 'Home', component: HomeView },
