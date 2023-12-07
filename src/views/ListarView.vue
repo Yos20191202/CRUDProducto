@@ -92,7 +92,7 @@ import router from '../router';
               }
         },
       },
-      components: { router },
+
 };
   </script>
   
