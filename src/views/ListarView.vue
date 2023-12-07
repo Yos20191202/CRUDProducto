@@ -32,7 +32,7 @@
             <!-- Botones de acciones -->
             <td>
               <router-link :to="{ name: 'Editar', params: { id: producto.id } }" class="btn btn-info">Editar</router-link>
-              <button class="btn btn-danger" @click="eliminarProducto(producto.id)">Borrar</button>
+              <button class="btn btn-danger" v-on:click="eliminarProducto(producto.id)">Borrar</button>
             </td>
           </tr>
         </tbody>
@@ -68,11 +68,12 @@ import router from '../router';
 
         eliminarProducto(id) {
           // Realiza la solicitud para eliminar el producto con el ID especificado
-          fetch(`http://localhost/tienda01/?borrar=${id}`, { method: 'DELETE' })
+          fetch('http://localhost/tienda01/?borrar_producto='+id)
             .then(response => response.json())
             .then(data => {
               console.log(data); 
-              this.consultarProductos();
+              //this.consultarProductos();
+              window.location.href = "listar"
             })
             .catch(error => console.error('Error al eliminar producto:', error));
         },
