@@ -153,4 +153,12 @@ if (mysqli_num_rows($sqlProductos) > 0) {
 } else {
     echo json_encode([["success" => 0]]);
 }
+
+$sqlCategoria = mysqli_query($conexionBD, "SELECT * FROM categoria ");
+if (mysqli_num_rows($sqlCategoria) > 0) {
+    $categoria = mysqli_fetch_all($sqlCategoria, MYSQLI_ASSOC);
+    echo json_encode($categoria);
+} else {
+    echo json_encode([["success" => 0]]);
+}
 ?>
