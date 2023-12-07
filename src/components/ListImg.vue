@@ -56,7 +56,7 @@ export default {
     },
     methods: {
         consultarImg() {
-            fetch('http://localhost/imagens/')
+            fetch('http://localhost/tienda01/imagen.php')
                 .then(respuesta => respuesta.json())
                 .then(datosRespuesta => {
                     console.log(datosRespuesta)
@@ -69,7 +69,7 @@ export default {
         },
         borrarImagen(id) {
             console.log(id);
-            fetch('http://localhost/imagens/?borrar=' + id)
+            fetch('http://localhost/tienda01/imagen.php/?borrar=' + id)
 
                 .then(respuesta => respuesta.json())
                 .then(datosRespuesta => {

@@ -14,8 +14,7 @@ $nombreBaseDatos = "tienda01";
 $conexionBD = new mysqli($servidor, $usuario, $contrasenia, $nombreBaseDatos);
 
 // Función para ejecutar consultas y manejar la respuesta en formato JSON
-function ejecutarConsulta($sqlQuery, $successMessage = "success")
-{
+function ejecutarConsulta($sqlQuery, $successMessage = "success") {
     global $conexionBD;
 
     $result = mysqli_query($conexionBD, $sqlQuery);
@@ -145,14 +144,13 @@ if (isset($_GET["actualizar_imagen"])) {
     ejecutarConsulta("UPDATE imagen SET img='$img', descripcion='$descripcion' WHERE id_img='$id'", "success_imagen");
 }
 
-
 // Si no se ha realizado ninguna operación, se consulta la tabla Producto
 
 $sqlProductos = mysqli_query($conexionBD, "SELECT * FROM producto ");
 if (mysqli_num_rows($sqlProductos) > 0) {
-$productos = mysqli_fetch_all($sqlProductos, MYSQLI_ASSOC);
-echo json_encode($productos);
+    $productos = mysqli_fetch_all($sqlProductos, MYSQLI_ASSOC);
+    echo json_encode($productos);
 } else {
-echo json_encode([["success" => 0]]);
+    echo json_encode([["success" => 0]]);
 }
 ?>
