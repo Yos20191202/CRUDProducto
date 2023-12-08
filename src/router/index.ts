@@ -22,7 +22,6 @@ const routes: Array<RouteRecordRaw> = [
   { path: '/listCat', name: 'ListCat', component: ListCatVue },
   { path: '/crearCat', name: 'CrearCat', component: CrearCatVue },
   { path: '/editarCat/:id', name: 'EditarCat', component: EditarCatVue, props: true },
-  ,
   {
     path: '/crearCat',
     name: 'CrearCat',
