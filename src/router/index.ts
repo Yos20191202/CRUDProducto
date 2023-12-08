@@ -37,6 +37,7 @@ const routes: Array<RouteRecordRaw> = [
     path: '/listCat',
     name: 'ListCat',
     component: ListCatVue
+  }
 ];
 
 const router = createRouter({
