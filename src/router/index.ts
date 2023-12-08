@@ -6,6 +6,10 @@ import EditarView from '../views/EditarView.vue'
 import CrearImgVue from '../components/CrearImg.vue'
 import EditarImgVue from '../components/EditarImg.vue'
 import ListImgVue from '../components/ListImg.vue'
+//Cat
+import CrearCatVue from '../components/CrearCat.vue'
+import EditarCatVue from '../components/EditarCat.vue'
+import ListCatVue from '../components/ListCat.vue'
 
 const routes: Array<RouteRecordRaw> = [
   { path: '/', name: 'Home', component: HomeView },
@@ -15,6 +19,21 @@ const routes: Array<RouteRecordRaw> = [
   { path: '/listImg', name: 'ListImg', component: ListImgVue },
   { path: '/crearImg', name: 'CrearImg', component: CrearImgVue },
   { path: '/editar/:id', name: 'EditarImg', component: EditarImgVue, props: true },
+  ,
+  {
+    path: '/crearCat',
+    name: 'CrearCat',
+    component: CrearCatVue
+  },
+  {
+    path: '/editarCat',
+    name: 'EditarCat',
+    component: EditarCatVue
+  },
+  {
+    path: '/listCat',
+    name: 'ListCat',
+    component: ListCatVue
 ];
 
 const router = createRouter({
