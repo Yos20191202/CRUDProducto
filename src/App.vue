@@ -7,6 +7,8 @@
         <router-link to="/listar" class="nav-link">Productos</router-link>
         <router-link to="/listImg" class="nav-link">VerImg</router-link>
         <router-link to="/crearImg" class="nav-link">CrearImg</router-link>
+        <router-link to="/listCat" class="nav-link">VerCat</router-link>
+        <router-link to="/crearCat" class="nav-link">CrearCat</router-link>
       </div>
   </nav>
   <br>
