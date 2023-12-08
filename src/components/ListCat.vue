@@ -25,7 +25,7 @@
             <td>{{ cat.descripcion }}</td>
             <td>
               <div class="btn-group" role="group" aria-label="">
-                <router-link :to="{ name: 'Editar', params: { id: cat.id } }" class="btn btn-info">Editar</router-link>
+                <router-link :to="{ name: 'EditarCat', params: { id: cat.id } }" class="btn btn-info">Editar</router-link>
                 <button type="button" @click="borrarCat(cat.id)" class="btn btn-danger">Borrar</button>
               </div>
             </td>

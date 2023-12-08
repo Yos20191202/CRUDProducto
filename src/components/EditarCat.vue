@@ -22,7 +22,7 @@
                     </div>
                     <div class="btn-group" role="group" aria-label="">
                         <button type="submit" class="btn btn-success">Modificar</button>
-                        <router-link :to="{name: 'ListarCat'}" class="btn btn-warning">Cancelar</router-link>
+                        <router-link :to="{name: 'ListCat'}" class="btn btn-warning">Cancelar</router-link>
                     </div>
                 </form>
 
@@ -67,7 +67,7 @@ export default {
                 console.log(datosRespuesta)
                 window.location.href = "../ListCat"
                 // alert(datosRespuesta.mensaje)
-                // this.empleado = {}
+                // this.cat = {}
             })
         }
     }
