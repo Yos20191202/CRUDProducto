@@ -3,7 +3,7 @@
         <div class="card-header">
             Imagenes
         </div>
-        <div class="carda">
+        <div class="carda" >
 
             <router-link :to="{ name: 'CrearImg' }">
                 <button class="btn-red">Crear Imagen</button>
