@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 07-12-2023 a las 18:02:56
--- Versión del servidor: 10.4.28-MariaDB
--- Versión de PHP: 8.1.17
+-- Tiempo de generación: 07-12-2023 a las 03:11:44
+-- Versión del servidor: 10.4.24-MariaDB
+-- Versión de PHP: 8.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -31,7 +31,7 @@ CREATE TABLE `categoria` (
   `id_cat` int(11) NOT NULL,
   `descripcion` varchar(255) DEFAULT NULL,
   `img_cat` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `categoria`
@@ -50,9 +50,9 @@ INSERT INTO `categoria` (`id_cat`, `descripcion`, `img_cat`) VALUES
 
 CREATE TABLE `imagen` (
   `id_img` int(11) NOT NULL,
-  `img` varchar(255) NOT NULL,
-  `descripcion` varchar(180) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `img` varchar(255) DEFAULT NULL,
+  `descripcion` text DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `imagen`
@@ -77,7 +77,7 @@ CREATE TABLE `producto` (
   `estilo` varchar(50) DEFAULT NULL,
   `f_img` int(11) DEFAULT NULL,
   `f_cat` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `producto`
@@ -87,26 +87,6 @@ INSERT INTO `producto` (`id`, `nombre`, `descripcion`, `talla`, `estilo`, `f_img
 (3, 'Producto 3', 'Descripción del producto 3', 'S', 'Estilo 3', 3, 3),
 (30, 'Producto 4', 'Descripción del producto4', 'M', 'casual', 2, 1),
 (31, 'Producto 5', 'Descripción del producto5', 'XL', 'moderno', 1, 3);
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `tbimagen`
---
-
-CREATE TABLE `tbimagen` (
-  `id` int(11) NOT NULL,
-  `imagen` varchar(100) NOT NULL,
-  `descripcion` varchar(180) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Volcado de datos para la tabla `tbimagen`
---
-
-INSERT INTO `tbimagen` (`id`, `imagen`, `descripcion`) VALUES
-(1, 'internet.png', 'dkdk'),
-(2, '8 (2).png', 'imagen3');
 
 --
 -- Índices para tablas volcadas
@@ -133,12 +113,6 @@ ALTER TABLE `producto`
   ADD KEY `f_cat` (`f_cat`);
 
 --
--- Indices de la tabla `tbimagen`
---
-ALTER TABLE `tbimagen`
-  ADD PRIMARY KEY (`id`);
-
---
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
@@ -159,12 +133,6 @@ ALTER TABLE `imagen`
 --
 ALTER TABLE `producto`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
-
---
--- AUTO_INCREMENT de la tabla `tbimagen`
---
-ALTER TABLE `tbimagen`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Restricciones para tablas volcadas

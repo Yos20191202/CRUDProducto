@@ -19,14 +19,14 @@
                         </tr>
                     </thead>
 
-          <tr v-for="cat in cat" :key="cat.id">
-            <td>{{ cat.id }}</td>
-            <td>{{ cat.tipo }}</td>
-            <td>{{ cat.descripcion }}</td>
+          <tr v-for="categoria in categoria" :key="categoria.id">
+            <td>{{ categoria.id }}</td>
+            <td>{{ categoria.tipo }}</td>
+            <td>{{ categoria.descripcion }}</td>
             <td>
               <div class="btn-group" role="group" aria-label="">
-                <router-link :to="{ name: 'EditarCat', params: { id: cat.id } }" class="btn btn-info">Editar</router-link>
-                <button type="button" @click="borrarCat(cat.id)" class="btn btn-danger">Borrar</button>
+                <router-link :to="{ name: 'EditarCat', params: { id: categoria.id } }" class="btn btn-info">Editar</router-link>
+                <button type="button" @click="borrarCat(categoria.id)" class="btn btn-danger">Borrar</button>
               </div>
             </td>
           </tr>
@@ -40,7 +40,7 @@
 export default {
   data() {
     return {
-      cat: []
+      categoria: []
     };
   },
   created() {
@@ -52,9 +52,9 @@ export default {
         .then(respuesta => respuesta.json())
         .then(datosRespuesta => {
           console.log(datosRespuesta)
-          this.cat = []
+          this.categoria = []
           if (typeof datosRespuesta[0].success === 'undefined') {
-            this.cat = datosRespuesta
+            this.categoria = datosRespuesta
           }
         })
         .catch(error => console.log(error));

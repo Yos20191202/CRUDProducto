@@ -95,4 +95,14 @@ if (mysqli_num_rows($sqlimagenes) > 0) {
 } else {
     echo json_encode(["success" => 0]);
 }
+
+if (isset($_GET["consultar"])){
+    $sqlimagenes = mysqli_query($conexionBD,"SELECT * FROM tbimagen WHERE id=".$_GET["consultar"]);
+    if(mysqli_num_rows($sqlimagenes) > 0){
+        $imagen = mysqli_fetch_all($sqlimagenes,MYSQLI_ASSOC);
+        echo json_encode($imagen);
+        exit();
+    }
+    else{  echo json_encode(["success"=>0]); }
+}
 ?>

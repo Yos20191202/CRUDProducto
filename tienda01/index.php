@@ -153,4 +153,5 @@ if (mysqli_num_rows($sqlProductos) > 0) {
 } else {
     echo json_encode([["success" => 0]]);
 }
+
 ?>

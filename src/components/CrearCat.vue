@@ -11,13 +11,13 @@
                     <div class="form-group">
                       <label for="tipo">Tipo: </label>
                       <input type="text"
-                        class="form-control" required name="tipo" v-model="cat.tipo" id="tipo" aria-describedby="helpId" placeholder="Tipo">
+                        class="form-control" required name="tipo" v-model="categoria.tipo" id="tipo" aria-describedby="helpId" placeholder="Tipo">
                       <small id="helpId" class="form-text text-muted">Escribe el tipo</small>
                     </div>
                     <div class="form-group">
                       <label for="">Descripcion: </label>
                       <input type="text"
-                        class="form-control" required name="descripcion" id="descripcion" v-model="cat.descripcion" aria-describedby="helpId" placeholder="Descripcion">
+                        class="form-control" required name="descripcion" id="descripcion" v-model="categoria.descripcion" aria-describedby="helpId" placeholder="Descripcion">
                       <small id="helpId" class="form-text text-muted">Agrega una descripcion</small>
                     </div>
                     <div class="btn-group" role="group" aria-label="">
@@ -35,15 +35,15 @@
 export default {
     data(){
         return{
-            cat: {}
+            categoria: {}
         }
     },
     methods:{
         agregarRegistroC(){
-            console.log(this.cat)
+            console.log(this.categoria)
             var datosEnviar = {
-                tipo: this.cat.tipo, 
-                descripcion: this.cat.descripcion
+                tipo: this.categoria.tipo, 
+                descripcion: this.categoria.descripcion
             }
 
             fetch('http://localhost/tienda01/categoria.php/?insertar=1',{

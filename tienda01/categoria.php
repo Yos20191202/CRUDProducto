@@ -12,18 +12,18 @@ $conexionBD = new mysqli($servidor, $usuario, $contrasenia, $nombreBaseDatos);
 
 // Consulta datos y recepciona una clave para consultar dichos datos con dicha clave
 if (isset($_GET["consultar"])){
-    $sqlCat = mysqli_query($conexionBD,"SELECT * FROM cat WHERE id=".$_GET["consultar"]);
-    if(mysqli_num_rows($sqlCat) > 0){
-        $cat = mysqli_fetch_all($sqlCat,MYSQLI_ASSOC);
-        echo json_encode($cat);
+    $sqlCategoria = mysqli_query($conexionBD,"SELECT * FROM categoria WHERE id=".$_GET["consultar"]);
+    if(mysqli_num_rows($sqlCategoria) > 0){
+        $categoria = mysqli_fetch_all($sqlCategoria,MYSQLI_ASSOC);
+        echo json_encode($categoria);
         exit();
     }
     else{  echo json_encode(["success"=>0]); }
 }
 //borrar pero se le debe de enviar una clave ( para borrado )
 if (isset($_GET["borrar"])){
-    $sqlCat = mysqli_query($conexionBD,"DELETE FROM cat WHERE id=".$_GET["borrar"]);
-    if($sqlCat){
+    $sqlCategoria = mysqli_query($conexionBD,"DELETE FROM categoria WHERE id=".$_GET["borrar"]);
+    if($sqlCategoria){
         echo json_encode(["success"=>1]);
         exit();
     }
@@ -36,7 +36,7 @@ if(isset($_GET["insertar"])){
     $descripcion=$data->descripcion;
         if(($descripcion!="")&&($tipo!="")){
             
-    $sqlCat = mysqli_query($conexionBD,"INSERT INTO cat(tipo,descripcion) VALUES('$tipo','$descripcion') ");
+    $sqlCategoria = mysqli_query($conexionBD,"INSERT INTO categoria(tipo,descripcion) VALUES('$tipo','$descripcion') ");
     echo json_encode(["success"=>1]);
         }
     exit();
@@ -50,15 +50,15 @@ if(isset($_GET["actualizar"])){
     $tipo=$data->tipo;
     $descripcion=$data->descripcion;
     
-    $sqlCat = mysqli_query($conexionBD,"UPDATE cat SET tipo='$tipo',descripcion='$descripcion' WHERE id='$id'");
+    $sqlCategoria = mysqli_query($conexionBD,"UPDATE categoria SET tipo='$tipo',descripcion='$descripcion' WHERE id='$id'");
     echo json_encode(["success"=>1]);
     exit();
 }
 // Consulta todos los registros de la tabla empleados
-$sqlCat = mysqli_query($conexionBD,"SELECT * FROM cat ");
-if(mysqli_num_rows($sqlCat) > 0){
-    $cat = mysqli_fetch_all($sqlCat,MYSQLI_ASSOC);
-    echo json_encode($cat);
+$sqlCategoria = mysqli_query($conexionBD,"SELECT * FROM categoria ");
+if(mysqli_num_rows($sqlCategoria) > 0){
+    $categoria = mysqli_fetch_all($sqlCategoria,MYSQLI_ASSOC);
+    echo json_encode($categoria);
 }
 else{ echo json_encode([["success"=>0]]); }
 
@@ -68,7 +68,7 @@ if (isset($_GET["actualizar_categoria"])) {
     $descripcion = $data->descripcion;
     $tipo = $data->tipo;
 
-    ejecutarConsulta("UPDATE cat SET descripcion='$descripcion', tipo='$tipo' WHERE id='$id'", "success_cat");
+    ejecutarConsulta("UPDATE categoria SET descripcion='$descripcion', tipo='$tipo' WHERE id='$id'", "success_categoria");
 }
 
 ?>

@@ -1,5 +1,3 @@
-
-<!-- CrearView.vue -->
 <template>
   <div>
     <h2>Agregar Nuevo Producto</h2>
@@ -35,12 +33,16 @@
 
       <div>
         <label for="nombre">Imagen:</label>
-        <select v-model="nuevoProducto.f_img" required>
-          <option v-for="opcion in opcionesFImg" :key="opcion" :value="opcion">
-            {{ opcion }}
+        <select v-model="nuevoProducto.f_img" required @change="cargarImagen">
+          <option v-for="opcion in opcionesFImg" :key="opcion.id" :value="opcion.id">
+            {{ opcion.id }}
           </option>
         </select>
+
+        <!-- Mostrar la imagen seleccionada -->
+        <img v-if="imagenSeleccionada" :src="imagenSeleccionada" alt="Imagen seleccionada" />
       </div>
+
 
       <div>
         <label for="nombre">Categoría:</label>
@@ -67,17 +69,44 @@
 export default {
   data() {
     return {
-      nuevoProducto: {},
-      tallasDisponibles: ["S", "M", "L", "XL", "XXL"], // Cambia según tus necesidades
-      opcionesFImg: [1, 2, 3], // Cambia según tus necesidades
-      opcionesFCat: [
-        { label: "Categoria A", value: 1 },
-        { label: "Categoria B", value: 2 },
-        { label: "Categoria C", value: 3 },
-      ],
+      nuevoProducto: {
+        // Otras propiedades del nuevo producto
+        //f_img: null,
+      },
+      tallasDisponibles: ["S", "M", "L", "XL", "XXL"],
+      opcionesFImg: [],
+      opcionesFCat: [], // Se llenará dinámicamente al montar el componente
+      imagenSeleccionada: null,
     };
   },
+  mounted() {
+    // Llamar a la función para obtener las categorías cuando el componente está montado
+    this.obtenerCategorias();
+    this.obtenerImagenes();
+  },
   methods: {
+    obtenerCategorias() {
+      fetch("http://localhost/tienda01/categoria.php/?obtener_categorias=1")
+        .then((respuesta) => respuesta.json())
+        .then((datosCategorias) => {
+          // Asignar las categorías a la propiedad opcionesFCat
+          this.opcionesFCat = datosCategorias.map((categoria) => {
+            return { label: categoria.tipo, value: categoria.id };
+          });
+        });
+    },
+
+    obtenerImagenes() {
+      fetch("http://localhost/tienda01/imagen.php/?obtener_imagenes=1")
+        .then((respuesta) => respuesta.json())
+        .then((datosImagenes) => {
+          // Asignar las imágenes a la propiedad opcionesFImg
+          this.opcionesFImg = datosImagenes.map((imagen) => {
+            return { id: imagen.id, nombre: imagen.imagen };
+          });
+        });
+    },
+
     agregarProducto() {
       var datosEnviar = {
         nombre: this.nuevoProducto.nombre,
@@ -137,5 +166,3 @@ button:hover {
   background-color: #45a049;
 }
 </style>
-``` Este código ahora incluye selectores desplegables para `talla`, `f_img`, y
-`f_cat`. Ajusta las opciones según tus necesidades.
