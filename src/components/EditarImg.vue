@@ -37,7 +37,7 @@ export default {
     },
     methods: {
         ObtenerDatos() {
-            fetch('http://localhost/CRUDProducto/imagens/?consultar=' + this.$route.params.id)
+            fetch('http://localhost/tienda01/imagen.php/tbimagen/?consultar=' + this.$route.params.id)
                 .then(respuesta => respuesta.json())
                 .then(datosRespuesta => {
                     console.log(datosRespuesta)
@@ -51,7 +51,7 @@ export default {
             formData.append('imagen', this.imagen.imagen);
             formData.append('descripcion', this.imagen.descripcion);
 
-            fetch("http://localhost/CRUDProducto/imagens/?actualizar=" + this.$route.params.id, {
+            fetch("http://localhost/tienda01/imagen.php/tbimagen/?actualizar=" + this.$route.params.id, {
                 method: "POST",
                 body: formData,
             })
