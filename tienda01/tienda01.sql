@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Dec 09, 2023 at 01:18 AM
--- Server version: 10.4.28-MariaDB
--- PHP Version: 8.2.4
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 09-12-2023 a las 03:13:55
+-- Versión del servidor: 10.4.28-MariaDB
+-- Versión de PHP: 8.1.17
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,35 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `tienda01`
+-- Base de datos: `tienda01`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `cat`
---
-
-CREATE TABLE `cat` (
-  `id` int(11) NOT NULL,
-  `tipo` varchar(255) NOT NULL,
-  `descripcion` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `cat`
---
-
-INSERT INTO `cat` (`id`, `tipo`, `descripcion`) VALUES
-(1, 'Tipo A', 'Imagen tipo A\r\n'),
-(1, 'Tipo A', 'Imagen tipo A\r\n'),
-(0, 'Tipo', 'Imagen tipo 2'),
-(0, 'Imagen 2', 'sdsd');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `categoria`
+-- Estructura de tabla para la tabla `categoria`
 --
 
 CREATE TABLE `categoria` (
@@ -56,7 +34,7 @@ CREATE TABLE `categoria` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `categoria`
+-- Volcado de datos para la tabla `categoria`
 --
 
 INSERT INTO `categoria` (`id`, `tipo`, `descripcion`) VALUES
@@ -72,28 +50,7 @@ INSERT INTO `categoria` (`id`, `tipo`, `descripcion`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `imagen`
---
-
-CREATE TABLE `imagen` (
-  `id_img` int(11) NOT NULL,
-  `img` varchar(255) DEFAULT NULL,
-  `descripcion` text DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `imagen`
---
-
-INSERT INTO `imagen` (`id_img`, `img`, `descripcion`) VALUES
-(1, 'imagen1.jpg', 'Descripción de la imagen 1'),
-(2, 'imagen2.jpg', 'Descripción de la imagen 2'),
-(3, 'imagen3.jpg', 'Descripción de la imagen 3');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `producto`
+-- Estructura de tabla para la tabla `producto`
 --
 
 CREATE TABLE `producto` (
@@ -107,16 +64,17 @@ CREATE TABLE `producto` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `producto`
+-- Volcado de datos para la tabla `producto`
 --
 
 INSERT INTO `producto` (`id`, `nombre`, `descripcion`, `talla`, `estilo`, `f_img`, `f_cat`) VALUES
-(33, 'sdsd', 'sdfdf', 'M', 'dsfd', 2, 6);
+(33, 'prueba1.1', 'descripcio1', 'XXL', 'Moda', 1, 1),
+(34, 'producto prueba', 'descripcion prueba', 'L', 'Moderno', 2, 8);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbimagen`
+-- Estructura de tabla para la tabla `tbimagen`
 --
 
 CREATE TABLE `tbimagen` (
@@ -126,31 +84,26 @@ CREATE TABLE `tbimagen` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `tbimagen`
+-- Volcado de datos para la tabla `tbimagen`
 --
 
 INSERT INTO `tbimagen` (`id`, `imagen`, `descripcion`) VALUES
-(1, 'uni_hombre.png', 'imagen2'),
-(2, 'uni_mujer.png', 'imagen3');
+(1, '', 'imagen1'),
+(2, 'uni_mujer.png', 'imagen3'),
+(4, 'uni_chef.png', 'imagen3');
 
 --
--- Indexes for dumped tables
+-- Índices para tablas volcadas
 --
 
 --
--- Indexes for table `categoria`
+-- Indices de la tabla `categoria`
 --
 ALTER TABLE `categoria`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `imagen`
---
-ALTER TABLE `imagen`
-  ADD PRIMARY KEY (`id_img`);
-
---
--- Indexes for table `producto`
+-- Indices de la tabla `producto`
 --
 ALTER TABLE `producto`
   ADD PRIMARY KEY (`id`),
@@ -158,45 +111,39 @@ ALTER TABLE `producto`
   ADD KEY `f_cat` (`f_cat`);
 
 --
--- Indexes for table `tbimagen`
+-- Indices de la tabla `tbimagen`
 --
 ALTER TABLE `tbimagen`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT de las tablas volcadas
 --
 
 --
--- AUTO_INCREMENT for table `categoria`
+-- AUTO_INCREMENT de la tabla `categoria`
 --
 ALTER TABLE `categoria`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT for table `imagen`
---
-ALTER TABLE `imagen`
-  MODIFY `id_img` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
--- AUTO_INCREMENT for table `producto`
+-- AUTO_INCREMENT de la tabla `producto`
 --
 ALTER TABLE `producto`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
--- AUTO_INCREMENT for table `tbimagen`
+-- AUTO_INCREMENT de la tabla `tbimagen`
 --
 ALTER TABLE `tbimagen`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
--- Constraints for dumped tables
+-- Restricciones para tablas volcadas
 --
 
 --
--- Constraints for table `producto`
+-- Filtros para la tabla `producto`
 --
 ALTER TABLE `producto`
   ADD CONSTRAINT `producto_ibfk_2` FOREIGN KEY (`f_cat`) REFERENCES `categoria` (`id`),
