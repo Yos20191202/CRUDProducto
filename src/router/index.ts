@@ -18,25 +18,10 @@ const routes: Array<RouteRecordRaw> = [
   { path: '/editar/:id', name: 'Editar', component: EditarView, props: true },
   { path: '/listImg', name: 'ListImg', component: ListImgVue },
   { path: '/crearImg', name: 'CrearImg', component: CrearImgVue },
-  { path: '/editar/:id', name: 'EditarImg', component: EditarImgVue, props: true },
+  { path: '/editarImg/:id', name: 'EditarImg', component: EditarImgVue, props: true },
   { path: '/listCat', name: 'ListCat', component: ListCatVue },
   { path: '/crearCat', name: 'CrearCat', component: CrearCatVue },
-  { path: '/editarCat/:id', name: 'EditarCat', component: EditarCatVue, props: true },
-  {
-    path: '/crearCat',
-    name: 'CrearCat',
-    component: CrearCatVue
-  },
-  {
-    path: '/editarCat',
-    name: 'EditarCat',
-    component: EditarCatVue
-  },
-  {
-    path: '/listCat',
-    name: 'ListCat',
-    component: ListCatVue
-  }
+  { path: '/editarCat/:id', name: 'EditarCat', component: EditarCatVue, props: true }
 ];
 
 const router = createRouter({

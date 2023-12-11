@@ -72,3 +72,4 @@ if (isset($_GET["actualizar_categoria"])) {
 }
 
 ?>
+
