@@ -48,7 +48,7 @@ export default {
   },
   methods: {
     consultarCat() {
-      fetch('http://localhost/tienda01/categoria.php/')
+      fetch('https://tienda01.proyectowebuni.com/categoria.php/')
         .then(respuesta => respuesta.json())
         .then(datosRespuesta => {
           console.log(datosRespuesta)
@@ -61,7 +61,7 @@ export default {
     },
     borrarCat(id) {
       console.log(id)
-      fetch('http://localhost/tienda01/categoria.php/?borrar=' + id)
+      fetch('https://tienda01.proyectowebuni.com/categoria.php/?borrar=' + id)
         .then(respuesta => respuesta.json())
         .then(datosRespuesta => {
           console.log(datosRespuesta)

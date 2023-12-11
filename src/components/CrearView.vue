@@ -46,7 +46,7 @@ export default {
                 correo: this.empleado.correo
             }
 
-            fetch('http://localhost/empleados/?insertar=1', {
+            fetch('https://tienda01.proyectowebuni.com/?insertar=1', {
                 method: 'POST',
                 body: JSON.stringify(datosEnviar),
                 headers: {
