@@ -29,7 +29,7 @@ export default {
                 imagen: null,
                 descripcion: "",
             },
-            imagenActual: 'https://yeremmihost.000webhostapp.com/tienda01/img/',
+            imagenActual: 'https://tienda01.proyectowebuni.com/img/',
         };
     },
     created() {
@@ -37,7 +37,7 @@ export default {
     },
     methods: {
         ObtenerDatos() {
-            fetch('https://yeremmihost.000webhostapp.com/tienda01/imagen.php/?consultar=' + this.$route.params.id)
+            fetch('https://tienda01.proyectowebuni.com/imagen.php/?consultar=' + this.$route.params.id)
                 .then(respuesta => respuesta.json())
                 .then(datosRespuesta => {
                     console.log(datosRespuesta)
@@ -50,7 +50,7 @@ export default {
             formData.append('imagen', this.imagen.imagen);
             formData.append('descripcion', this.imagen.descripcion);
 
-            fetch("https://yeremmihost.000webhostapp.com/tienda01/imagen.php/?actualizar=" + this.$route.params.id, {
+            fetch("https://tienda01.proyectowebuni.com/imagen.php/?actualizar=" + this.$route.params.id, {
                 method: "POST",
                 body: formData,
             })

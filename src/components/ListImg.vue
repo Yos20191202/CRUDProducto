@@ -55,7 +55,7 @@ export default {
     },
     methods: {
         consultarImg() {
-            fetch('https://yeremmihost.000webhostapp.com/tienda01/imagen.php')
+            fetch('https://tienda01.proyectowebuni.com/imagen.php')
                 .then(respuesta => respuesta.json())
                 .then(datosRespuesta => {
                     console.log(datosRespuesta)
@@ -68,7 +68,7 @@ export default {
         },
         borrarImagen(id) {
             console.log(id);
-            fetch('https://yeremmihost.000webhostapp.com/tienda01/imagen.php/?borrar=' + id)
+            fetch('https://tienda01.proyectowebuni.com/imagen.php/?borrar=' + id)
 
                 .then(respuesta => respuesta.json())
                 .then(datosRespuesta => {
