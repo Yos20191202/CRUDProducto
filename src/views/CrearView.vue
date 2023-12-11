@@ -86,7 +86,7 @@ export default {
   },
   methods: {
     obtenerCategorias() {
-      fetch("https://yeremmihost.000webhostapp.com/tienda01/categoria.php/?obtener_categorias=1")
+      fetch("https://tienda01.proyectowebuni.com/categoria.php/?obtener_categorias=1")
         .then((respuesta) => respuesta.json())
         .then((datosCategorias) => {
           // Asignar las categorías a la propiedad opcionesFCat
@@ -97,7 +97,7 @@ export default {
     },
 
     obtenerImagenes() {
-      fetch("https://yeremmihost.000webhostapp.com/tienda01/imagen.php/?obtener_imagenes=1")
+      fetch("https://tienda01.proyectowebuni.com/imagen.php/?obtener_imagenes=1")
         .then((respuesta) => respuesta.json())
         .then((datosImagenes) => {
           // Asignar las imágenes a la propiedad opcionesFImg
@@ -117,7 +117,7 @@ export default {
         f_cat: this.nuevoProducto.f_cat,
       };
 
-      fetch("https://yeremmihost.000webhostapp.com/tienda01/?insertar_producto=1", {
+      fetch("https://tienda01.proyectowebuni.com/?insertar_producto=1", {
         method: "POST",
         body: JSON.stringify(datosEnviar),
         headers: {

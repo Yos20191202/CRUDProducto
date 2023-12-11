@@ -58,7 +58,7 @@ import router from '../router';
             // Realiza la solicitud para obtener la lista de productos desde el servidor
             // Usa axios o fetch para realizar la solicitud GET
             // Ajusta la URL según tu estructura en el servidor
-            fetch('https://yeremmihost.000webhostapp.com/tienda01/')
+            fetch('https://tienda01.proyectowebuni.com/')
                 .then(response => response.json())
                 .then(data => {
                 this.productos = data;
@@ -68,7 +68,7 @@ import router from '../router';
 
         eliminarProducto(id) {
           // Realiza la solicitud para eliminar el producto con el ID especificado
-          fetch('https://yeremmihost.000webhostapp.com/tienda01/?borrar_producto='+id)
+          fetch('https://tienda01.proyectowebuni.com/?borrar_producto='+id)
             .then(response => response.json())
             .then(data => {
               console.log(data); 
@@ -83,7 +83,7 @@ import router from '../router';
             // Usa axios o fetch para realizar la solicitud GET
             // Ajusta la URL según tu estructura en el servidor
             try {
-                const response = await fetch(`https://yeremmihost.000webhostapp.com/tienda01/?consultar_categoria=${idCategoria}`);
+                const response = await fetch(`https://tienda01.proyectowebuni.com/?consultar_categoria=${idCategoria}`);
                 const data = await response.json();
                 return data.length > 0 ? data[0].descripcion : 'Categoría no encontrada';
             }

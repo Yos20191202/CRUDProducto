@@ -78,7 +78,7 @@ export default {
   },
   methods: {
     obtenerProductoID() {
-      fetch('https://yeremmihost.000webhostapp.com/tienda01/?consultar_producto=' + this.$route.params.id)
+      fetch('https://tienda01.proyectowebuni.com/?consultar_producto=' + this.$route.params.id)
         .then(respuesta => respuesta.json())
         .then((datosRespuesta) => {
           console.log(datosRespuesta)
@@ -88,7 +88,7 @@ export default {
     },
     obtenerOpcionesFImg() {
       // Lógica para obtener las opciones de imágenes desde tu API
-      fetch("https://yeremmihost.000webhostapp.com/tienda01/imagen.php/?obtener_imagenes=1")
+      fetch("https://tienda01.proyectowebuni.com/imagen.php/?obtener_imagenes=1")
         .then((respuesta) => respuesta.json())
         .then((datosImagenes) => {
           this.opcionesFImg = datosImagenes.map((imagen) => imagen.id);
@@ -97,7 +97,7 @@ export default {
     },
     obtenerOpcionesFCat() {
       // Lógica para obtener las opciones de categorías desde tu API
-      fetch("https://yeremmihost.000webhostapp.com/tienda01/categoria.php/?obtener_categorias=1")
+      fetch("https://tienda01.proyectowebuni.com/categoria.php/?obtener_categorias=1")
         .then((respuesta) => respuesta.json())
         .then((datosCategorias) => {
           this.opcionesFCat = datosCategorias.map((categoria) => {
@@ -116,7 +116,7 @@ export default {
         f_cat: this.editarProducto.f_cat,
       };
 
-      fetch('https://yeremmihost.000webhostapp.com/tienda01/?actualizar_producto=' + this.$route.params.id, {
+      fetch('https://tienda01.proyectowebuni.com/?actualizar_producto=' + this.$route.params.id, {
         method: 'POST',
         body: JSON.stringify(datosEnviar),
       })

@@ -43,7 +43,7 @@ export default {
     },
     methods:{
         obtenerInformacionID(){
-            fetch('http://localhost/tienda01/categoria.php/cat/?consultar='+this.$route.params.id)
+            fetch('https://tienda01.proyectowebuni.com/categoria.php/cat/?consultar='+this.$route.params.id)
             .then(respuesta => respuesta.json())
             .then((datosRespuesta) => {
                 console.log(datosRespuesta)
@@ -58,7 +58,7 @@ export default {
                 descripcion: this.cat.descripcion
             }
 
-            fetch('http://localhost/tienda01/categoria.php/cat/?actualizar='+this.$route.params.id,{
+            fetch('https://tienda01.proyectowebuni.com/categoria.php/cat/?actualizar='+this.$route.params.id,{
                 method: 'POST',
                 body: JSON.stringify(datosEnviar),
             })
