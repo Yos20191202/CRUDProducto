@@ -36,10 +36,9 @@ if (isset($_GET["borrar"])) {
 }
 
 // Inserta un nuevo registro
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+if(isset($_GET["insertar"])){
     $imagen = $_FILES['imagen'];
     $descripcion = $_POST['descripcion'];
-
     $nombreArchivo = basename($imagen['name']);
     $rutaArchivo = "img/" . $nombreArchivo;
     move_uploaded_file($imagen['tmp_name'], $rutaArchivo);
@@ -51,7 +50,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 
-//actualizar imagen
+// actualizar imagen
 if(isset($_GET["actualizar"])){
     $data = json_decode(file_get_contents("php://input"));
     $id=(isset($data->id))?$data->id:$_GET["actualizar"];
@@ -62,10 +61,11 @@ if(isset($_GET["actualizar"])){
     $rutaArchivo = "img/" . $nombreArchivo;
     move_uploaded_file($imagen['tmp_name'], $rutaArchivo);
     
-    $sqlCategoria = mysqli_query($conexionBD,"UPDATE $nombreTabla SET imagen='$nombreArchivo',descripcion='$descripcion' WHERE id='$id'");
+    $sqlimagenes = mysqli_query($conexionBD,"UPDATE $nombreTabla SET imagen='$nombreArchivo',descripcion='$descripcion' WHERE id='$id'");
     echo json_encode(["success"=>1]);
     exit();
 }
+
 
 
 // Consulta todos los registros de la tabla tbimagen
@@ -74,7 +74,7 @@ if (mysqli_num_rows($sqlimagenes) > 0) {
     $imagenes = mysqli_fetch_all($sqlimagenes, MYSQLI_ASSOC);
 
     foreach ($imagenes as &$imagen) {
-        $imagen['imagen'] = 'https://yeremmihost.000webhostapp.com/tienda01/img/' . $imagen['imagen'];
+        $imagen['imagen'] = 'http://localhost/tienda01/img/' . $imagen['imagen'];
     }
 
     echo json_encode($imagenes);
