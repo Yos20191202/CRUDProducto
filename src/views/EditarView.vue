@@ -88,10 +88,11 @@ export default {
     },
     obtenerOpcionesFImg() {
       // Lógica para obtener las opciones de imágenes desde tu API
-      fetch("http://localhost/tienda01/imagen.php/?obtener_imagenes=1")
+      fetch("https://yeremmihost.000webhostapp.com/tienda01/imagen.php/?obtener_imagenes=1")
         .then((respuesta) => respuesta.json())
         .then((datosImagenes) => {
           this.opcionesFImg = datosImagenes.map((imagen) => imagen.id);
+          
         });
     },
     obtenerOpcionesFCat() {

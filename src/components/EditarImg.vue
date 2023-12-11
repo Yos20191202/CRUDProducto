@@ -50,7 +50,11 @@ export default {
             formData.append('imagen', this.imagen.imagen);
             formData.append('descripcion', this.imagen.descripcion);
 
+<<<<<<< HEAD
             fetch("https://yeremmihost.000webhostapp.com/tienda01/imagen.php/?actualizar=" + this.$route.params.id, {
+=======
+            fetch("http://localhost/tienda01/imagen.php/?actualizar=" + this.$route.params.id, {
+>>>>>>> e045235e1a0f5ae8527f143e605ac418fddf7dba
                 method: "POST",
                 body: formData,
             })
