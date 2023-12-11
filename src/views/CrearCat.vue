@@ -46,7 +46,7 @@ export default {
                 descripcion: this.cat.descripcion
             }
 
-            fetch('http://localhost/tienda01/categoria.php/?insertar=1',{
+            fetch('https://yeremmihost.000webhostapp.com/tienda01/categoria.php/?insertar=1',{
                 method: 'POST',
                 body: JSON.stringify(datosEnviar),
                 headers:{

@@ -42,7 +42,7 @@ export default {
             formData.append("imagen", this.imagen.imagen);
             formData.append("descripcion", this.imagen.descripcion);
 
-            fetch("http://localhost/tienda01/imagen.php/?insertar=1", {
+            fetch("https://yeremmihost.000webhostapp.com/tienda01/imagen.php/img/?insertar=1", {
                 method: "POST",
                 body: formData,
             })

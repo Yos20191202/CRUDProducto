@@ -43,7 +43,7 @@ export default {
     },
     methods:{
         obtenerInformacionID() {
-            fetch('http://localhost/tienda01/categoria.php/?consultar=' + this.$route.params.id)
+            fetch('https://yeremmihost.000webhostapp.com/tienda01/categoria.php/?consultar=' + this.$route.params.id)
                 .then(respuesta => respuesta.json())
                 .then((datosRespuesta) => {
                     console.log(datosRespuesta);
@@ -58,7 +58,7 @@ export default {
                 descripcion: this.categoria.descripcion
             }
 
-            fetch('http://localhost/tienda01/categoria.php/categoria/?actualizar='+this.$route.params.id,{
+            fetch('https://yeremmihost.000webhostapp.com/tienda01/categoria.php/categoria/?actualizar='+this.$route.params.id,{
                 method: 'POST',
                 body: JSON.stringify(datosEnviar),
             })

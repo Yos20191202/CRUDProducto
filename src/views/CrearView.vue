@@ -86,7 +86,7 @@ export default {
   },
   methods: {
     obtenerCategorias() {
-      fetch("http://localhost/tienda01/categoria.php/?obtener_categorias=1")
+      fetch("https://yeremmihost.000webhostapp.com/tienda01/categoria.php/?obtener_categorias=1")
         .then((respuesta) => respuesta.json())
         .then((datosCategorias) => {
           // Asignar las categorías a la propiedad opcionesFCat
@@ -117,7 +117,7 @@ export default {
         f_cat: this.nuevoProducto.f_cat,
       };
 
-      fetch("http://localhost/tienda01/?insertar_producto=1", {
+      fetch("https://yeremmihost.000webhostapp.com/tienda01/?insertar_producto=1", {
         method: "POST",
         body: JSON.stringify(datosEnviar),
         headers: {

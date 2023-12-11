@@ -78,7 +78,7 @@ export default {
   },
   methods: {
     obtenerProductoID() {
-      fetch('http://localhost/tienda01/?consultar_producto=' + this.$route.params.id)
+      fetch('https://yeremmihost.000webhostapp.com/tienda01/?consultar_producto=' + this.$route.params.id)
         .then(respuesta => respuesta.json())
         .then((datosRespuesta) => {
           console.log(datosRespuesta)
@@ -96,7 +96,7 @@ export default {
     },
     obtenerOpcionesFCat() {
       // Lógica para obtener las opciones de categorías desde tu API
-      fetch("http://localhost/tienda01/categoria.php/?obtener_categorias=1")
+      fetch("https://yeremmihost.000webhostapp.com/tienda01/categoria.php/?obtener_categorias=1")
         .then((respuesta) => respuesta.json())
         .then((datosCategorias) => {
           this.opcionesFCat = datosCategorias.map((categoria) => {
@@ -115,7 +115,7 @@ export default {
         f_cat: this.editarProducto.f_cat,
       };
 
-      fetch('http://localhost/tienda01/?actualizar_producto=' + this.$route.params.id, {
+      fetch('https://yeremmihost.000webhostapp.com/tienda01/?actualizar_producto=' + this.$route.params.id, {
         method: 'POST',
         body: JSON.stringify(datosEnviar),
       })

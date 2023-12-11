@@ -74,7 +74,7 @@ if (mysqli_num_rows($sqlimagenes) > 0) {
     $imagenes = mysqli_fetch_all($sqlimagenes, MYSQLI_ASSOC);
 
     foreach ($imagenes as &$imagen) {
-        $imagen['imagen'] = 'http://localhost/tienda01/img/' . $imagen['imagen'];
+        $imagen['imagen'] = 'https://yeremmihost.000webhostapp.com/tienda01/img/' . $imagen['imagen'];
     }
 
     echo json_encode($imagenes);
