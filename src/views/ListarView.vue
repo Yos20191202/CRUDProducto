@@ -2,7 +2,7 @@
 <template>
     <div>
       <h2>Listado de Productos</h2>
-      <router-link to="/crear">Agregar Nuevo Producto</router-link>
+      <router-link to="/crear">Agregar Nuevo ProductoSSSSSS</router-link>
   
       <table>
         <thead>
