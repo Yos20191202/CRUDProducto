@@ -28,8 +28,7 @@
                             <td>{{ imagen.descripcion }}</td>
                             <td>
                                 <div class="btn-group" role="group" aria-label="">
-                                    <!-- <router-link :to="{ name: 'EditarImg', params:{id:imagen.id} }"> -->
-                                    <router-link :to="{ name: '' }">
+                                    <router-link :to="{ name: 'EditarImg', params:{id:imagen.id} }">
                                         <button class="my-button">Editar</button>
                                     </router-link>
                                     <button type="button" @click="borrarImagen(imagen.id)"

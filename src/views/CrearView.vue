@@ -97,7 +97,7 @@ export default {
     },
 
     obtenerImagenes() {
-      fetch("http://localhost/tienda01/imagen.php/?obtener_imagenes=1")
+      fetch("https://yeremmihost.000webhostapp.com/tienda01/imagen.php/?obtener_imagenes=1")
         .then((respuesta) => respuesta.json())
         .then((datosImagenes) => {
           // Asignar las imágenes a la propiedad opcionesFImg

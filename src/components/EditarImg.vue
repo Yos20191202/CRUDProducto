@@ -21,7 +21,6 @@
     </form>
 </template>
 
-
 <script>
 export default {
     data() {
@@ -30,19 +29,19 @@ export default {
                 imagen: null,
                 descripcion: "",
             },
+            imagenActual: 'http://localhost/tienda01/img/',
         };
     },
-    created: function () {
+    created() {
         this.ObtenerDatos();
     },
     methods: {
         ObtenerDatos() {
-            fetch('http://localhost/CRUDProducto/imagens/?consultar=' + this.$route.params.id)
+            fetch('http://localhost/tienda01/imagen.php/?consultar=' + this.$route.params.id)
                 .then(respuesta => respuesta.json())
                 .then(datosRespuesta => {
                     console.log(datosRespuesta)
                     this.imagen = datosRespuesta[0];
-
                 })
                 .catch(error => console.log(error));
         },
@@ -51,7 +50,7 @@ export default {
             formData.append('imagen', this.imagen.imagen);
             formData.append('descripcion', this.imagen.descripcion);
 
-            fetch("http://localhost/CRUDProducto/imagens/?actualizar=" + this.$route.params.id, {
+            fetch("https://yeremmihost.000webhostapp.com/tienda01/imagen.php/?actualizar=" + this.$route.params.id, {
                 method: "POST",
                 body: formData,
             })
@@ -64,7 +63,8 @@ export default {
                 .then((datosRespuesta) => {
                     if (datosRespuesta && datosRespuesta.success === 1) {
                         console.log('Actualización exitosa');
-                        window.location.href = '../listImg';
+                        // Utiliza el enrutador de Vue.js para navegar a la página de lista de imágenes
+                        this.$router.push({ name: 'ListImg' });
                     } else {
                         console.error('Error en la actualización:', datosRespuesta && datosRespuesta.error);
                     }
@@ -72,8 +72,80 @@ export default {
                 .catch((error) => {
                     console.error('Error al procesar la respuesta:', error);
                 });
-        }
-
-    }
-}
+        },
+        handleImagenChange(event) {
+            this.imagen.imagen = event.target.files[0]; // Actualiza el valor de la propiedad imagen
+        },
+    },
+};
 </script>
+
+
+<style scoped>
+.card-header {
+    color: black;
+    padding: 10px;
+    font-size: 24px;
+    text-align: center;
+}
+
+.formulario {
+    max-width: 400px;
+    margin: 0 auto;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 20px;
+    background-color: #fff;
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 15px;
+    font-size: 14px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    text-align: left;
+}
+
+input[type="file"],
+textarea {
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.btn-group {
+    margin-top: 10px;
+}
+
+button {
+    padding: 10px 20px;
+    margin-right: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn-success:hover {
+    background-color: #008000;
+}
+
+.btn-success {
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+}
+
+.btn-red {
+    background-color: #dc3545;
+    color: #fff;
+    border: none;
+}
+
+.btn-red:hover {
+    background-color: #FF0000;
+}
+</style>
