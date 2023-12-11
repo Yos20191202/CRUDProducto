@@ -97,11 +97,7 @@ export default {
     },
 
     obtenerImagenes() {
-<<<<<<< HEAD
       fetch("https://yeremmihost.000webhostapp.com/tienda01/imagen.php/?obtener_imagenes=1")
-=======
-      fetch("https://yeremmihost.000webhostapp.com/tienda01/categoria.php/?obtener_categorias=1")
->>>>>>> e045235e1a0f5ae8527f143e605ac418fddf7dba
         .then((respuesta) => respuesta.json())
         .then((datosImagenes) => {
           // Asignar las imágenes a la propiedad opcionesFImg
