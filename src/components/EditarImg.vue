@@ -29,7 +29,7 @@ export default {
                 imagen: null,
                 descripcion: "",
             },
-            imagenActual: 'http://localhost/tienda01/img/',
+            imagenActual: 'https://yeremmihost.000webhostapp.com/tienda01/img/',
         };
     },
     created() {
@@ -37,7 +37,7 @@ export default {
     },
     methods: {
         ObtenerDatos() {
-            fetch('http://localhost/tienda01/imagen.php/?consultar=' + this.$route.params.id)
+            fetch('https://yeremmihost.000webhostapp.com/tienda01/imagen.php/?consultar=' + this.$route.params.id)
                 .then(respuesta => respuesta.json())
                 .then(datosRespuesta => {
                     console.log(datosRespuesta)
